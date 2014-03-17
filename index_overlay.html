@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="playground">
+<head>
+    <title></title>
+</head>
+<body leap-bind="{hands : 'hands', pointables : 'pointables', interactionBox: 'interactionBox'}">
+
+<div ng-repeat="pointable in pointables"
+     style="background-color:red;
+            border-radius: 50%;
+            width: {{ pointable.tipPosition[2] + interactionBox.depth}}px;
+            height: {{ pointable.tipPosition[2] + interactionBox.depth}}px;
+            position: absolute;
+            left:{{((interactionBox.width + (pointable.tipPosition[0] - interactionBox.center[0])) / (interactionBox.width * 2) * 1280) - (pointable.tipPosition[2] + interactionBox.depth) / 2 }}px;
+            top:{{((interactionBox.height - (pointable.tipPosition[1] - interactionBox.center[1])) / (interactionBox.height * 2) * 960) - (pointable.tipPosition[2] + interactionBox.depth) / 2}}px;
+            z-index: {{(pointable.tipPosition[2] + interactionBox.depth)}};">
+</div>
+<div ng-repeat="hand in hands"
+     style="background-color:yellow;
+            border-radius: 50%;
+            width: {{ hand.palmPosition[2] + interactionBox.depth}}px;
+            height: {{ hand.palmPosition[2] + interactionBox.depth}}px;
+            position: absolute;
+            left:{{((interactionBox.width + (hand.palmPosition[0] - interactionBox.center[0])) / (interactionBox.width * 2) * 1280) - (hand.palmPosition[2] + interactionBox.depth) / 2 }}px;
+            top:{{((interactionBox.height - (hand.palmPosition[1] - interactionBox.center[1])) / (interactionBox.height * 2) * 960) - (hand.palmPosition[2] + interactionBox.depth) / 2}}px;
+            z-index: {{(hand.palmPosition[2] + interactionBox.depth)}};">
+</div>
+
+
+
+
+
+<script src="bower_components/leapjs/leap.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-leap/build/angular-leap.min.js"></script>
+
+<script>
+    angular.module('playground',['angularLeap']);
+</script>
+</body>
+</html>

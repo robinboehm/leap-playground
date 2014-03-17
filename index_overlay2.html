@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="angularLeapUi">
+<head>
+    <title></title>
+
+    <style>
+        .leap-hover {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<span leap-overlay style="height: 500px;width: 500px;position: relative;display: block">
+    <h1 leap-hover>This is a headline</h1>
+<span leap-hover>
+    Hover Effect
+</span>
+<span leap-hover>
+    Hover Effect
+</span>
+<span leap-hover>
+    Hover Effect
+</span>
+<span leap-hover>
+    Hover Effect
+</span>
+<span leap-hover>
+    Hover Effect
+</span>
+<span leap-hover>
+    Hover Effect
+</span>
+<span leap-hover>
+    Hover Effect
+</span>
+<span leap-hover>
+    Hover Effect
+</span>
+<span leap-hover>
+    Hover Effect
+</span>
+
+
+</span>
+
+
+<script src="bower_components/leapjs/leap.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-leap/build/angular-leap.min.js"></script>
+
+<script src="src/module.js"></script>
+<script src="src/directive/overlay.js"></script>
+<script src="src/directive/leapHover.js"></script>
+<script src="src/service/NormalizePointablesService.js"></script>
+
+</body>
+</html>

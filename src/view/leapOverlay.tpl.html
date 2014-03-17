@@ -1,0 +1,12 @@
+<div>
+    <div ng-transclude></div>
+    <div ng-repeat="pointable in getRelativePosition track by $index"
+         style="background-color:red;
+            border-radius: 50%;
+            width: {{ pointable[2] * 100}}px;
+            height: {{ pointable[2] * 100}}px;
+            position: absolute;
+            left:{{ pointable[0] * offsetWidth }}px;
+            bottom:{{ pointable[1] * offsetHeight}}px;">
+    </div>
+</div>
