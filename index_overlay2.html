@@ -11,8 +11,25 @@
 </head>
 <body>
 
-<span leap-overlay style="height: 500px;width: 500px;position: relative;display: block">
-    <h1 leap-hover>This is a headline</h1>
+
+<section leap-overlay style="height: 900px">
+
+
+    <h1
+            leap-swipe-left="name='Swipe-Left';"
+            leap-swipe-right="name='Swipe-Right'"
+            leap-swipe-up="name='Swipe-Up'"
+            leap-swipe-backward="name='Swipe-Up'"
+            leap-swipe-forward="name='Swipe-Up'"
+            leap-swipe-down="name='Swipe-Down'"
+            leap-circle-counter-clockwise="name='circle-counter'"
+            leap-circle-clockwise="name='circle'"
+            leap-screen-tap="name='Tap on Screen'"
+            leap-key-tap="name='Key-Tap'"
+            leap-hover>
+        Last Gesture:{{name}}
+    </h1>
+
 <span leap-hover>
     Hover Effect
 </span>
@@ -41,13 +58,12 @@
     Hover Effect
 </span>
 
+</section>
 
-</span>
 
-
-<script src="bower_components/leapjs/leap.min.js"></script>
+<script src="bower_components/leapjs/leap.js"></script>
 <script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-leap/build/angular-leap.min.js"></script>
+<script src="bower_components/angular-leap/build/angular-leap.js"></script>
 
 <script src="src/module.js"></script>
 <script src="src/directive/overlay.js"></script>

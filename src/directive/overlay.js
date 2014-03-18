@@ -12,18 +12,15 @@ angular.module('angularLeapUi')
         scope.offsetWidth = controller.offsetWidth = element[0].offsetWidth;
 
 
-        scope.getRelativePosition = NormalizePointables.get();
+        scope.relativePositions = NormalizePointables.get();
 
 
-        var getElementBehindPoint = function (behind, x, y) {
-          var originalDisplay = behind.css('display');
-          behind.css('display', 'none');
-
-          var element = angular.element($document[0].elementFromPoint(x, y));
-
-          behind.css('display', originalDisplay);
-
-          return element;
+        scope.getZSize = function (normalVector, scale, min) {
+          var size = 0;
+          if (normalVector > 0) {
+            size = normalVector * scale;
+          }
+          return size + min;
         };
 
 

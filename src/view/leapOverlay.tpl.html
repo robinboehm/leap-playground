@@ -1,11 +1,25 @@
-<div>
+<!-- TODO: extract? -->
+<style>
+    .leap-overlay-container > div.leap-overlay-visual{
+        border-radius: 50%;
+        position: absolute;
+    }
+</style>
+<div class="leap-overlay-container" style="position: relative;height: 100%">
     <div ng-transclude></div>
-    <div ng-repeat="pointable in getRelativePosition track by $index"
+    <div class="leap-overlay-pointables leap-overlay-visual"
+         ng-repeat="pointable in relativePositions.pointables track by $index"
          style="background-color:red;
-            border-radius: 50%;
-            width: {{ pointable[2] * 100}}px;
-            height: {{ pointable[2] * 100}}px;
-            position: absolute;
+            width: {{ getZSize(pointable[2],100,25) }}px;
+            height: {{ getZSize(pointable[2],100,25)}}px;
+            left:{{ pointable[0] * offsetWidth }}px;
+            bottom:{{ pointable[1] * offsetHeight}}px;">
+    </div>
+    <div class="leap-overlay-hands leap-overlay-visual"
+         ng-repeat="pointable in relativePositions.hands track by $index"
+         style="background-color:yellow;
+            width: {{ getZSize(pointable[2],100,25) }}px;
+            height: {{ getZSize(pointable[2],100,25) }}px;
             left:{{ pointable[0] * offsetWidth }}px;
             bottom:{{ pointable[1] * offsetHeight}}px;">
     </div>
