@@ -4,7 +4,8 @@ angular.module('angularLeapUi')
   .factory('NormalizePointables', function ($interval, leap) {
 
 
-    var normalizedPointables = [];
+    var normalizedPointables = [],
+      normalizedHands = [];
 
     var updateFn = function () {
       var frame = leap.getLastFrame();
@@ -15,6 +16,11 @@ angular.module('angularLeapUi')
         normalizedPointables.push(interactionBox.normalizePoint(pointable.tipPosition, true));
       });
 
+      normalizedHands.length = 0;
+      angular.forEach(frame.hands, function (hand) {
+        normalizedHands.push(interactionBox.normalizePoint(hand.palmPosition, true));
+      });
+
       return normalizedPointables;
     };
 
@@ -22,7 +28,10 @@ angular.module('angularLeapUi')
 
     return{
       get: function () {
-        return normalizedPointables;
+        return {
+          pointables: normalizedPointables,
+          hands: normalizedHands
+        };
       }
     };
   });
